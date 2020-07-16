@@ -1,0 +1,70 @@
+
+#jumbo{
+	margin-top: 20vh;
+}
+
+.bg-custom{
+	background: #ea9e10;
+}
+.img-btn{
+	background-color: transparent;
+	border-color: transparent;
+	padding:0;
+	margin:0;
+}
+
+.img-size{
+	object-fit: contain;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.top-buffer{
+	margin-top: 4%;
+}
+
+.desc-container{
+	padding-top: 4%;
+}
+.camp-pub-id{
+	visibility: hidden;
+	width:0;
+	height:0;
+	margin:0;
+	padding:0
+}
+.del-btn{
+	border:0;
+	background:inherit;
+	padding:0;
+}
+.del-btn:hover{
+	color:red;
+}
+.usr-comment{
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	background: rgba(163, 161, 127,0.4);
+}
+.usr-comment p{
+	padding-left: 1em;
+	padding-right: 0.5rem;
+	padding-top:0;
+	margin-top:0;
+}
+.div.col-md-12{
+	padding-left:0 !important;
+}
+div.wide{
+	padding: 0 -6em;
+}
+span.days{
+	padding-right:1em;
+}
+.reg{
+	margin: 0 0.3em !important;
+}
+

@@ -1,0 +1,165 @@
+<%include partials/header.ejs %>
+
+
+<!-- JUMBOTRON HEADER -->
+<div class='container'>
+	<header class='jumbotron' id='jumbo'>
+		<div>
+			<h1>Welcome to Camp Now</h1>
+			<h4>Find your perfect getaway campsite today</h4>
+			<p>
+				<button type='button' class= 'btn btn-primary' data-toggle='modal' data-target='#myModal'>Add Campsite</button>
+			</p>
+		</div>
+	</header>
+	
+
+
+<!-- Campsite Modal form -->
+ <!-- ADD CAMPSITE MODAL FORM -->
+ <form id = 'myModal' action='/campgrounds' method="POST" class='modal fade' enctype='multipart/form-data'>
+
+    <div class='modal-dialog'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h1 class='modal-title'> Add a New Campsite</h1>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class='modal-body'>
+                <div class='form-group'>
+                    <label for='camp_name'><strong>Campsite Name</strong></label>
+                    <input type="text" name="camp_name" placeholder="e.g Bonnivale Bush Camp" class='form-control from-control-sm' required>
+                </div>
+                
+                <div class='form-group'>
+                    <label for='camp_image'><strong>Add a Picture of the Campsite</strong>(.jpg/.png) </label>
+                    <input type="file" name="camp_image" accept='.jpeg,.jpg,.png'>
+
+                </div>
+
+                <div class='form-group'>
+                    <label for='camp_desc'><strong>Description</strong></label>
+                    <textarea name='camp_desc' class='form-control' rows='3'></textarea>
+                </div>
+
+                <button type='submit' class='btn btn-success'>Add Campsite</button>
+
+            </div>
+
+            <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+            
+        </div>
+    </div>
+
+</form>
+
+
+<!-- DISPLAY ALL TRENDING CAMPSITES IN db.campgrounds -->
+	<div class='row' >
+		
+		<% for(var i = 0; i< campgrounds.length;i++) { %>
+		
+				<div class='col-sm-6 col-md-4 col-lg-3 top-buffer'>
+
+					<button type = 'button' data-toggle='modal' data-target= "<%='#popup' + i%>" class="img-btn">
+					<div class='card galleryImg'>
+
+						<img class='card-img-top img-responsive ' src="<%= campgrounds[i].url %>" >
+						<div class='card-body'>
+							<h5 class='card-title'> <%= campgrounds[i].name %> </h5>
+						</div>
+					
+
+					</div>
+					</button>
+					<!--Modal popup of clicked campground -->
+					<div id='<%="popup" + i %>' class='modal fade'>
+						<div class='modal-dialog modal-lg'>
+							<div class='modal-content'>
+								<div class='modal-body'>
+									<div class='row'>
+										<div class='col-md-3'>            
+											<p class='lead'>CampNow</p>
+											<div class='list-group'>
+												<li class='list-group-item active'>Info 1</li>
+												<li class='list-group-item'>Info 2</li>
+												<li class='list-group-item'>Info 3</li>
+											</div>
+										</div> 
+										<div class='col-md-9'>
+											<button type="button" class="close float-right" data-dismiss="modal">&times;</button>
+											<img class='img-responsive img-size' src="<%= campgrounds[i].url %>" >
+											<h4 class='float-right'>R600/night</h4>
+											<h1><%=campgrounds[i].name%></h1>
+											<div class = 'desc-container'>
+												<p><%= campgrounds[i].description%></p>
+											</div>
+											<div class='modal-body'>
+												<!-- Add comments -->
+												<div class='add-comment'>
+													<a class='btn btn-primary' role='button' href='/campgrounds/<%=campgrounds[i]._id%>/comments/new'>Add Comment</a>
+												</div>
+												<!-- <div class='add-comment'>
+													<form action='/campgrounds/<%=campgrounds[i]._id%>/comments/new' method='POST'>
+														<div class="input-group mb-3">
+															<input type='text' name='comment[author]' placeholder='Name'>
+															<input type="text" name='comment[text]'class="form-control" placeholder="How did you find <%=campgrounds[i].name%>?" aria-label="Comment" aria-describedby="basic-addon2">
+															<div class="input-group-append">
+																<button class="btn btn-primary"  type="submit">Submit</a>
+															</div>
+														</div>
+													</form>
+												</div>	
+																					 -->
+											<!--Comments div -->
+												<%for(var k = 0; k < campgrounds[i].comments.length; k++){%> 
+													<div class='row'>
+														<div class='col-md-12 cmt'>														
+															<div class='usr-comment'>	
+																<span class='float-right days'>10 Days ago</span>
+																<strong><a href = '#'><%=campgrounds[i].comments[k].author.username%></strong></a> </<strong>																
+																<p><%=campgrounds[i].comments[k].text%></p>
+															</div>														
+														</div>
+													</div>
+													
+												<%};%>
+
+												<!-- Delete Campsite Button. -->
+												<form action='/campgrounds/<%=campgrounds[i]._id%>?_method=DELETE' method='POST'>
+													<input class='camp-pub-id' type="text" name="camp_id_pub" value = '<%= campgrounds[i].cloud_public_id%> '>
+													<button type='submit' class='del-btn'><i class="fas fa-trash"></i></button>
+												</form>
+											</div>
+										</div>
+
+									</div>
+
+								</div>
+								
+							</div>
+							
+						</div>						
+
+
+					</div>
+
+
+
+
+				</div>
+		<% }; %>
+
+	</div>
+
+
+
+
+</div>
+
+<%include partials/footer.ejs%>
+<script type='text/javascript' src='assets/js/modalComment.js'></script>

@@ -1,0 +1,6 @@
+<%include partials/header.ejs %>
+
+<% for(var i = 0; i < testData.length; i++){%>
+
+        <p><strong><%=testData[i].comments[0].author%></strong> - <%=testData[i].comments[0].text%></p>
+<% }%>

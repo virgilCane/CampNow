@@ -1,0 +1,139 @@
+html, body{
+
+	
+	margin:0;
+	padding: 0;
+	height:100%;
+	width:100%;	
+
+}
+
+#wrapper{
+	height:100%;
+	width:100%;
+	margin:auto;
+	background: url('landing.jpg') no-repeat 50% 50%;
+	background-size: cover;
+	display:table;
+	top:0;
+}
+
+#grouping{
+	display:table-cell;
+	vertical-align: middle;
+	width:100%;
+	max-width:none;
+}
+
+
+#interface{
+/*	margin: 0 auto;
+	top: 50%;
+	left:50%;
+	width:30%;
+	height:25%;
+	margin-left: -15%;
+	border-radius: 2px;
+	background-color: rgba(188, 187, 173,0.2);
+	position:absolute;
+	*/
+	max-width:35%;
+	margin:0 auto;
+	text-align: center;
+
+}
+
+#head{
+	text-align: center;
+	color: white;
+	text-shadow: 0 0 300px black;
+	font-size: 450%;
+	padding-bottom: 4%;
+}
+
+#camp-link{
+	
+	font-size: 135%;
+	color:#ea9e10;
+	padding: 0.25rem 1rem;
+	border: 0.15rem solid #ea9e10;
+	border-radius: 9px;
+	text-decoration: none;	
+}
+#camp-link:hover{
+	color:white;
+	border: 0.15rem solid white;
+
+}
+/* Media Queries */
+@media only screen and (max-width:576px){
+
+#head{
+	text-align: center;
+	color: white;
+	text-shadow: 0 0 300px black;
+	font-size: 7vw;
+	padding-bottom: 4%;
+}
+
+#camp-link{
+	
+	font-size: 4vw;
+	color:#ea9e10;
+	padding: 0.25rem 1rem;
+	border: 0.15rem solid #ea9e10;
+	border-radius: 9px;
+	text-decoration: none;	
+}
+#interface{
+	max-width:45%;
+}
+
+}
+/* End of @media(max-width:576px) */
+@media only screen and (max-width:1000px){
+
+#head{
+	text-align: center;
+	color: white;
+	text-shadow: 0 0 300px black;
+	font-size: 5.5vw;
+	padding-bottom: 4%;
+}
+
+#camp-link{
+	
+	font-size: 4vw;
+	color:#ea9e10;
+	padding: 0.25rem 1rem;
+	border: 0.15rem solid #ea9e10;
+	border-radius: 9px;
+	text-decoration: none;	
+}
+#interface{
+	max-width:50%;
+}
+
+}
+/* End of @media(max-width:1000px) */
+
+
+@media only screen and (max-width: 1250){
+	#head{
+	text-align: center;
+	color: white;
+	text-shadow: 0 0 300px black;
+	font-size: 5vw;
+	padding-bottom: 4%;
+}
+
+#camp-link{
+	
+	font-size: 4vw;
+	color:#ea9e10;
+	padding: 0.25rem 1rem;
+	border: 0.15rem solid #ea9e10;
+	border-radius: 9px;
+	text-decoration: none;	
+}
+}

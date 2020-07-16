@@ -1,0 +1,56 @@
+<%include partials/header.ejs %>
+<link rel="stylesheet" type="text/css" href="/assets/app.css">
+<link rel="stylesheet" type="text/css" href="/assets/show.css">
+<!-- NAVBAR -->
+<div class='container'>
+	<nav class='nav navbar-dark  bg-custom fixed-top navbar-expand p-3 ' >
+		
+		<a class='navbar-brand ' href='/'>Camp Now <i class="fas fa-tree"></i></a>
+
+		<span class='navbar-nav'>
+		<a class='nav-link active' href='/campgrounds'>Campsites</a>
+		<a class='nav-link' href='#'>Link</a>
+		<a class='nav-link' href='#'>Link</a>
+		</span>
+
+		<span class = 'navbar-expand-sm navbar-nav ml-auto'>	
+			<li class='navbar-item'><a class='nav-link' href='#'>Login</a></li>
+			<li class='navbar-item'><a class='nav-link' href='#'>Sign up</a></li>
+		</span>
+
+
+	</nav>
+</div>
+<div class='nav-spacer'></div>
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-3'>
+            <p class='lead'>CampNow</p>
+            <div class='list-group'>
+                <li class='list-group-item active'>Info 1</li>
+                <li class='list-group-item'>Info 2</li>
+                <li class='list-group-item'>Info 3</li>
+            </div>
+        </div>
+        <div class='col-md-9'>
+            <div class='card'>
+                <div class='card-body'>
+                    <img class='card-img-top img-responsive' src='<%=campground.url%>'>
+                    <div class='card-text'>
+                        <h4 class='float-right'>R600/night</h4>
+                        <h1><%=campground.name%></h1>
+                        <p><%=campground.description%></p> 
+                        <div class='bg-light'>
+                            <button class = 'btn btn-warning float-right'>Add Comment</button>
+                            <p><strong>Joseph</strong> Pretty holy</p>
+                            <p><strong>Misiah</strong> This place is certainly, unique</p>
+                            <p><strong>Isaac</strong> I cannot stand the smell</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%include partials/footer.ejs %>
